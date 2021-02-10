@@ -88,14 +88,14 @@ tsne = manifold.TSNE(n_components=2, random_state=42)
         np.column_stack((transformed_data, targets[:3000])),
         columns = ["x", "y", "targets"]
         )
-    tsne_df.loc[:, "targets"] = tsne_df.targets.astype(int)
+tsne_df.loc[:, "targets"] = tsne_df.targets.astype(int)
  ```
 
  Eventually we can visualize the results obtained by
 
  ```python
  grid = sns.FacetGrid(tsne_df, hue = "targets", height = 10)
-    grid.map(plt.scatter, "x", "y").add_legend().savefig("../image/output.png")
+grid.map(plt.scatter, "x", "y").add_legend().savefig("../image/output.png")
  
  ```
 <p align="center">
